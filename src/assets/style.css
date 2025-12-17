@@ -1028,6 +1028,11 @@ label {
     .experience-item p{
         margin: 10px 0;
     }
+    .project-detail-item-description h2{
+        font-size: 3rem;
+        padding-right: 3rem;
+    }
+
     .date{
         top: 0;
         right: 10px;
