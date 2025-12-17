@@ -12,9 +12,10 @@ const cyberSecurityBtn=document.querySelector('.cyberSecurity');
 const allCyberSecurityProjects=document.querySelectorAll('.cyberSecurity-projects');
 const allProjectBtn=document.querySelector('.allproject');
 const projectTypeItem=document.querySelectorAll('.project-types-item');
-const detailCloseBtn= document.querySelector('.project-detail-close-btn');
-const detailContainer=document.querySelector('.project-detail-container');
-const readMoreDetailBtn=document.querySelectorAll('.read-More-btn');
+const readMoreBtns = document.querySelectorAll('.read-More-btn');
+const detailContainers = document.querySelectorAll('.project-detail-container');
+const allProjectDetailsWrapper = document.querySelector('.all-project-details-container');
+const detailCloseBtns = document.querySelectorAll('.project-detail-close-btn');
 
 menuBtn.addEventListener('click',()=>{
     if(menuPage){
@@ -78,14 +79,33 @@ allProjectBtn.addEventListener('click',()=>{
     projectHandler('block',allCyberSecurityProjects);
 });
 
-readMoreDetailBtn.forEach(button=>{
-    button.addEventListener('click',()=>{
-        detailContainer.style.display='block';
-    })
-})
+readMoreBtns.forEach((button) => {
+    button.addEventListener('click', () => {
+        const projectId = button.getAttribute('data-project');
+        const targetContainer = document.getElementById(projectId);
 
-detailCloseBtn.addEventListener('click',()=>{
-    detailContainer.style.display='none';
+        if (targetContainer) {
+            allProjectDetailsWrapper.style.display = 'flex';
+            detailContainers.forEach(c => c.style.display = 'none'); // Hide others
+            targetContainer.style.display = 'block'; // Show target
+            document.body.style.overflow = 'hidden';
+        }
+    });
 });
+
+detailCloseBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        allProjectDetailsWrapper.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+});
+
+allProjectDetailsWrapper.addEventListener('click', (e) => {
+    if (e.target === allProjectDetailsWrapper) {
+        allProjectDetailsWrapper.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
 
 projectTypeHandler(allProjectBtn);

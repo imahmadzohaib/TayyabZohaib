@@ -109,6 +109,7 @@ color: var(--hover-puple);
 .detail-div p{
     font-size: 2rem;
     padding: 6px;
+    padding-right: 5rem;
     text-align: center;
 }
 .img-container{
@@ -233,7 +234,7 @@ transition: 0.5s;
 .skill-item-icon{
     display: flex;
     align-items: center;
-    width: 20rem;
+    width: fit-content;
     padding: 1rem;
     border-radius: 10px;
     gap: 15px;
@@ -255,8 +256,7 @@ transition: 0.5s;
     font-size: 3rem;
 }
 .skill-item p{
-    font-size: 2rem;
-
+    font-size: 1.5rem;
 }
 
 .projects{
@@ -306,6 +306,7 @@ font-size: 4rem ;
     
 }
 .project-item{
+    height: auto;
     max-width: 50rem;
     border-radius:10px ;
     transition: .5s;
@@ -362,9 +363,29 @@ font-size: 4rem ;
 .project-item h4{
     display: inline-block;
     padding: 2rem;
-    font-size: 1.5rem;
     cursor: pointer;
     color: #5f58f3;
+    transition: .5s ease;
+}
+.project-item-buttons{
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-left: 20px;
+}
+.project-item-buttons a{
+    text-decoration: none;
+    color: white;
+    background-color: #5C55DA;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: .5s ease;
+}
+.project-item-buttons a:hover{
+    transform: scale(1.1);
+}
+.project-item h4:hover{
+    transform: scale(1.1);
 }
 .project-detail-container{
     display: none;
@@ -381,10 +402,14 @@ font-size: 4rem ;
     overflow-y: auto;
     z-index: 999999;
     transition: .5s ease;
+    scroll-behavior: smooth;
+}
+.project-detail-container::-webkit-scrollbar{
+    display: none;
 }
 .project-detail-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     margin: 0 auto;
     width: fit-content;
     
@@ -437,7 +462,7 @@ font-size: 4rem ;
     font-size: 4rem;
     padding: 10rem 0;
 }
-.experince-item-container{
+.experience-item-container{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -445,7 +470,7 @@ font-size: 4rem ;
 }
 .experience-item{
     width: 90rem;
-    height: 60rem;
+    height: fit-content;
     background-color: #FFFFFF;
     padding: 3rem;
     border-radius: 10px;
@@ -646,6 +671,7 @@ textarea {
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
+    font-size: 2.5rem;
 }
 label {
     display: block;
@@ -747,6 +773,11 @@ label {
         gap: 85rem;
     }
 }
+@media (max-width:2200px) {
+    .project-item-list ul{
+        flex-wrap: wrap;
+    }
+}
 @media (max-width:1536px) {
     .main-heading{
         gap: 60rem;
@@ -757,6 +788,7 @@ label {
     .skill-item{
         width: 27rem;
     }
+
     .project-item{
         max-width: 45rem; 
     }
@@ -780,9 +812,7 @@ label {
     .project-item{
         max-width: 30rem; 
     }
-    .project-item-list ul{
-        flex-wrap: wrap;
-    }
+   
     .education-item-container{
         grid-template-columns: 1fr 1fr;
     }
@@ -841,7 +871,7 @@ label {
     .experience-item{
         width: 70rem;
         font-size: 1.6rem;
-        height: 56rem;
+        height: fit-content;
     }
     .education-item{
         height: 45rem;
@@ -915,7 +945,7 @@ label {
     .experience-item{
         width: 56rem;
         font-size: 1.6rem;
-        height: 56rem;
+        height: fit-content;
     }
     .education-item-container{
         grid-template-columns: 1fr;
@@ -992,7 +1022,7 @@ label {
     }
     .experience-item{
     width: 40rem;
-    height: 60rem;
+    height: fit-content;
     line-height: 1.1;
     }
     .experience-item p{
